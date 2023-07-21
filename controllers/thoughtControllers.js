@@ -1,6 +1,6 @@
 const { User, Thought } = require("../models");
 
-const thoughtController = {
+const thoughtControllers = {
   async getAllThoughts(req, res) {
     try {
       const myThoughts = await Thought.find({});
@@ -106,3 +106,5 @@ const thoughtController = {
     }
   }
 };
+
+module.exports = thoughtControllers
