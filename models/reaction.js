@@ -9,7 +9,7 @@ const reactionSchema = new Schema(
         },
 
         reactionBody: {
-            type, String,
+            type: String,
             required: true,
             maxlength: 300,
         },

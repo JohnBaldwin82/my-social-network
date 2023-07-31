@@ -5,7 +5,7 @@ const moment = require('moment')
 const myThoughtSchema = new Schema (
     {
         myThoughtText: {
-            type: stringify,
+            type: String,
             required: true,
             validate: [
                 ({length}) => length >= 1 && length <= 300,
@@ -22,7 +22,7 @@ const myThoughtSchema = new Schema (
         },
 
         username: {
-            type: string,
+            type: String,
             required: true
         },
 

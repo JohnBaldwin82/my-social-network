@@ -11,7 +11,7 @@ const thoughtControllers = {
     }
   },
 
-  async getThoughtsById({ params }, res) {
+  async getOneThought({ params }, res) {
     try {
       const myThoughts = await Thought.findOne({ _id: params.id });
       if (!myThoughts) {
