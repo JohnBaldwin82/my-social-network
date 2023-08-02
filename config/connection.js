@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const connection =
+const myConnection =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/myStudentDB";
 
-mongoose.connect(connection, {
+mongoose.connect(myConnection, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-module.exports = mongoose.connection
+mongoose.connect(myConnection, { debug: true });
+
+module.exports = mongoose.connection;

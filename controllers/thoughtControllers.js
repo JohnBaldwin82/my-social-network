@@ -26,12 +26,15 @@ const thoughtControllers = {
     }
   },
 
-  async createThought({ params, body }, res) {
+  async createThought( req , res) {
     try {
-      const { _id } = await Thought.create(body);
+      console.log('test123')
+      const newThought = await Thought.create(req.body);
+      console.log(newThought)
+      console.log('===========')
       const user = await User.findOneAndUpdate(
-        { _id: params.userId },
-        { $push: { myThoughts: _id } },
+        { _id: req.body.userId },
+        { $push: { thoughts: newThought._id } },
         { new: true }
       );
 
@@ -40,6 +43,7 @@ const thoughtControllers = {
       }
       res.json(user);
     } catch (err) {
+      console.log(err)
       res.json(err);
     }
   },
