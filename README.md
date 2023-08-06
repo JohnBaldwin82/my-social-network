@@ -17,6 +17,7 @@ Clone this repo then do an npm i then npm start.
 
 ## Demo
 
+[Untitled_ Aug 5, 2023 9_46 PM.webm](https://github.com/JohnBaldwin82/my-social-network/assets/124854286/97f7f962-fdad-4a8e-87ae-b8ae862d70b7)
 
 
 ## Questions
