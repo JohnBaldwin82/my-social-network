@@ -1,19 +1,38 @@
-const mongoose = require('mongoose')
-const myData = require('../config/connection')
-const {myUser, myThought} = require('..models')
-const {getSomeUsers, getSomeThoughts} = require('./data')
+const connection = require('../config/connection');
+const { User, Thought, Reaction } = require('../models');
 
-myData.once('open', async () => {
-    try {
-        await User.deletMany({})
-        await Thought.deleteMany({})
-
-        const myUser = await myUser.create(getSomeUsers(8))
-        const myThought = await myThought.create(getSomeThoughts(user, 16))
-
-        console.log('Finished')
-        process.exit(0)
-    } catch (err) {
-        throw err
+const users = [
+    {
+        username: 'Bob',
+        email: 'bobsburgers@gmail.com'
+    },
+    {
+        username: 'Linda',
+        email: 'lindaburger@gmail.com'
+    },
+    {
+        username: 'Gene',
+        email: 'geneburger@gmail.com'
+    },
+    {
+        username: 'Louise',
+        email: 'louiseburger@gmail.com'
+    },
+    {
+        username: 'Teddy',
+        email: 'teddyburger@gmail.com'
     }
-})
+]
+
+connection.on('error', (err) => err);
+
+connection.once('open', async () => {
+    console.log('connected');
+    await Thought.deleteMany({});
+    await User.deleteMany({});
+
+    await User.collection.insertMany(users);
+
+    console.info('Successfully seeded');
+    process.exit(0);
+});
