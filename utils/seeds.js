@@ -3,24 +3,24 @@ const { User, Thought, Reaction } = require('../models');
 
 const users = [
     {
-        username: 'Bob',
-        email: 'bobsburgers@gmail.com'
+        username: 'Ari',
+        email: 'Ari@yahoo.com'
     },
     {
-        username: 'Linda',
-        email: 'lindaburger@gmail.com'
+        username: 'Connor',
+        email: 'Connor@yahoo.com'
     },
     {
-        username: 'Gene',
-        email: 'geneburger@gmail.com'
+        username: 'Harper',
+        email: 'Harper@yahoo.com'
     },
     {
-        username: 'Louise',
-        email: 'louiseburger@gmail.com'
+        username: 'Beth',
+        email: 'Beth@yahoo.com'
     },
     {
-        username: 'Teddy',
-        email: 'teddyburger@gmail.com'
+        username: 'John',
+        email: 'John@yahoo.com'
     }
 ]
 

@@ -1,46 +1,42 @@
-const { Schema, model} = require('mongoose')
-const reactionSchema = require('./reaction')
-const moment = require('moment')
+const { Schema, model } = require('mongoose');
+const Reaction = require('./Reaction');
+const formatDate = require('../utils/format.js')
 
-const myThoughtSchema = new Schema (
-    {
-        myThoughtText: {
-            type: String,
-            required: true,
-            validate: [
-                ({length}) => length >= 1 && length <= 300,
-                'your text for your thought should be between 1 and 300 characters'
-            ],
-        },
-
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (createdAtVal) =>
-            moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'),
-
-        },
-
-        username: {
-            type: String,
-            required: true
-        },
-
-        reactions: [reactionSchema],
+const schemaThought = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+      minlength: 1,
+      maxlength: 280
     },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (date) => formatDate(date)
+    },
+    username: {
+      type: String,
+      required: true
+    },
+    reactions: [Reaction],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+    id: false,
+  }
+);
 
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true,
-        },
-        id: false
-    }
-)
-myThoughtSchema.virtual('reactionCount').get(function () {
-    return this.reactions.length
-})
 
-const Thought = model('Thought', myThoughtSchema)
+schemaThought
+  .virtual('reactionAmount')
+  .get(function () {
+    return this.reactions.length;
+  })
 
-module.exports = Thought
+const Thought = model('thought', schemaThought);
+
+module.exports = Thought;

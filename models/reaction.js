@@ -1,7 +1,7 @@
 const { Schema, Types } = require('mongoose');
 const formatDate = require('../utils/format.js')
 
-const reactionSchema = new Schema(
+const schemaReaction = new Schema(
     {
         reactionId: {
             type: Schema.Types.ObjectId,
@@ -31,4 +31,4 @@ const reactionSchema = new Schema(
     }
 )
 
-module.exports = reactionSchema;
+module.exports = schemaReaction;
