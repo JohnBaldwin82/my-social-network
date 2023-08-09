@@ -45,6 +45,6 @@ schemaUser.virtual('count').get(function () {
     return this.friends.length
 });
 
-const User = model("User", schemaUser)
+const User = model("user", schemaUser)
 
 module.exports = User
