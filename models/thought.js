@@ -19,12 +19,12 @@ const schemaThought = new Schema(
       type: String,
       required: true
     },
-    reactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'reaction'
-      }
-    ],
+    // reactions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'reaction'
+    //   }
+    // ],
   },
   {
     toJSON: {
@@ -36,11 +36,11 @@ const schemaThought = new Schema(
 );
 
 
-schemaThought
-  .virtual('reactionAmount')
-  .get(function () {
-    return this.reactions.length;
-  })
+// schemaThought
+//   .virtual('reactionAmount')
+//   .get(function () {
+//     return this.reactions.length;
+//   })
 
 const Thought = model('thought', schemaThought);
 

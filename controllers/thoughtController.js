@@ -20,12 +20,11 @@ module.exports = {
   },
 
   createThought(req, res) {
-    console.log(req.body);
     Thought.create({
       thoughtText: req.body.thoughtText,
       username: req.body.username
     }).then((thought) => {
-      
+
       return User.findOneAndUpdate(
         { username: req.body.username }, {
         $addToSet: { thoughts: thought._id }
