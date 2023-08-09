@@ -8,10 +8,11 @@ module.exports = {
   },
 
   gotOneUser(req, res) {
+    console.log(req.params.userId);
     User.findOne({ _id: req.params.userId })
       .select('-__v')
       .populate('friends')
-      .populate('thoughts')
+      //.populate('thoughts')
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'This id does not return a user' })
