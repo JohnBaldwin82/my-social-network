@@ -95,7 +95,7 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'This id does not return a thought' })
-          : res.json(`Reaction added`)
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },
