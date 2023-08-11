@@ -16,8 +16,10 @@ Building an API for a social network web application where users can share their
 Clone this repo then do an npm i then npm start.
 
 ## Demo
+[Get All.webm](https://github.com/JohnBaldwin82/my-social-network/assets/124854286/aec1b679-2218-4ef2-9fad-0db6c0f807f8)
+[Get single thought-user.webm](https://github.com/JohnBaldwin82/my-social-network/assets/124854286/70a99083-47aa-4680-8f59-52c173a12f93)
 
-[Untitled_ Aug 5, 2023 9_46 PM.webm](https://github.com/JohnBaldwin82/my-social-network/assets/124854286/97f7f962-fdad-4a8e-87ae-b8ae862d70b7)
+
 
 
 ## Questions
