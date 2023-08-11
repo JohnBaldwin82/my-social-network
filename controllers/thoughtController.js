@@ -53,7 +53,6 @@ module.exports = {
     ).then((thought) => {
       if (thought) {
         res.status(200).json(thought);
-        //console.log(`Updated: ${thought}`);
       }
     }).catch((err) => {
       console.log(err);

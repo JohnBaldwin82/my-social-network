@@ -31,23 +31,21 @@ module.exports = {
   },
 
   changeUser(req, res) {
-      User.findOneAndUpdate(
-          { _id: req.params.userId }, 
-          {
-            username: req.body.username,
-            email: req.body.email
-          }, 
-          { new: true }, 
-          (err, result) => {
-            if (result) {
-              res.status(200).json(result);
-              console.log(`Updated: ${result}`);
-            } else {
-              console.log(err);
-              res.status(500).json({ message: 'error', err });
-            }
-          }
-      )
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      {
+        thoughtText: req.body.thoughtText,
+        username: req.body.username
+      },
+      { new: true }
+    ).then((thought) => {
+      if (thought) {
+        res.status(200).json(thought);
+      }
+    }).catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    })
   },
 
     removeUser(req, res) {
